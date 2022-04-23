@@ -1,12 +1,19 @@
 <html>
 
 <head>
-	<title>#Kiekdargaliuchillint???</title>
+	<title>#How long can I chill??</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-1257">
 	<style type="text/css">
 		#Table_01 tr td strong {
 			font-size: 150px;
 			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		a {
+			text-decoration: none;
+			color: black;
+			font-weight: bold;
+			margin-right: 5px;
 		}
 	</style>
 </head>
@@ -28,7 +35,7 @@
 					<img src="images/index_02.gif" width="86" height="29" alt="">
 				</td>
 				<td colspan="3">
-					šiuo metu sutartį pasirašo</td>
+					Currently signing ticket number is:</td>
 				<td colspan="2">
 					<img src="images/index_04.gif" width="186" height="29" alt="">
 				</td>
@@ -43,7 +50,7 @@
 				<td colspan="7">
 					<center><strong>
 
-							Nr.
+							No.
 							<?php
 							$file = fopen("log.txt", "r") or exit("Unable to open file!");
 
@@ -70,8 +77,8 @@
 					<img src="images/index_08.gif" width="42" height="177" alt="">
 				</td>
 				<td colspan="3" align="center">
-					šiandien vienas numeriukas užtruko<br>
-					vidutiniškai
+					Today one ticket took<br>
+					an average of
 					<?php
 					$file = fopen("log.txt", "r") or exit("Unable to open file!");
 					$file2 = fopen("minutes.txt", "w+") or exit("Unable to open file!");
@@ -120,7 +127,7 @@
 			<tr>
 				<td colspan="3">
 					<p>
-						<center>Sužinok kiek maždaug liko laukti! Įvesk savo Nr.</center>
+						<center>Find Out How Long you have to wait! <br>Enter Your No.</center>
 					</p>
 					<center>
 						<form action="index.php" method="post">
@@ -134,9 +141,9 @@
 						<?php
 
 						if (empty($_POST["number"]))
-							echo "Įveskite numeriuką.";
+							echo "";
 						else
-							echo "Jums liko laukti ~ " . ($_POST["number"] - $data3[3]) * intval($vid) . "min";
+							echo "You have left ~ " . ($_POST["number"] - $data3[3]) * intval($vid) . "minutes";
 
 
 
@@ -162,7 +169,14 @@
 					<img src="images/index_13.gif" width="9" height="71" alt="">
 				</td>
 				<td colspan="3" rowspan="2">
-					<img src="images/index_14.gif" width="352" height="48" alt="">
+					<!-- <img src="images/index_14.gif" width="352" height="48" alt=""> -->
+					<div width="352" height="48">
+						Useful links <br />
+						<a href="http://www.vu.lt" target="_blank" rel="noopener noreferrer">vu.lt</a>
+						<a href="http://www.ffsa.lt" target="_blank" rel="noopener noreferrer">ffsa.lt</a>
+						<a href="http://www.ff.vu.lt" target="_blank" rel="noopener noreferrer">ff.vu.lt</a>
+
+					</div>
 				</td>
 				<td rowspan="3">
 					<img src="images/index_15.gif" width="10" height="71" alt="">

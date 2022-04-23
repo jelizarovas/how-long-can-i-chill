@@ -20,22 +20,22 @@
     echo ftell($file);
     echo "<br>";
 
-    echo "Šiandien yra " . date("d") . "diena. ";
-    $hour = date("H") + 3;
+    echo "Current day is " . date("d") . ". Time is ";
+    $hour = date("H") + 3; //TIMEZONE VILNIUS
     echo $hour;
-    echo "valanda ir ";
-    echo date("i") . " minučių.";
+    echo ": ";
+    echo date("i") . ". ";
     $plusone = $data[3] + 1;
     if ($plusone < 100 && $plusone != 1 && $plusone != 2 && $plusone != 3 && $plusone != 4 && $plusone != 5 && $plusone != 6 && $plusone != 7 && $plusone != 8 && $plusone != 9)
-      echo "Dabar eilėje yra Nr. 0" . $plusone;
+      echo "Current Ticket No. 0" . $plusone;
     elseif ($plusone < 10)
-      echo "Dabar eilėje yra Nr. 00" . $plusone;
+      echo "Current Ticket No. 00" . $plusone;
     else
-      echo "Dabar eilėje yra Nr. " . $plusone;
+      echo "Current Ticket No. " . $plusone;
 
     fwrite($file, "\r\n");
     fwrite($file, date("d") . ",");
-    $hour = date("H") + 3;
+    $hour = date("H") + 3; //TIMEZONE VILNIUS
     fwrite($file, $hour);
     fwrite($file, ",");
     fwrite($file, date("i") . ",");
@@ -56,7 +56,7 @@
 
     while (!feof($file)) {
       $data2 = fgetcsv($file);
-      echo "Kai sutartį pasirašinėjo Nr. " . $data2[3] . " buvo " . $data2[1] . "valanda ir " . $data2[2] . " minučių.";
+      echo "No. " . $data2[3] . " was signed at " . $data2[1] . ":" . $data2[2] . ".";
       echo "<br>";
     }
     fclose($file);

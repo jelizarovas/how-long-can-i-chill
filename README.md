@@ -28,6 +28,17 @@ Not sure how exactly this part was executed, but I am guessing that I took the t
 
 It was perfect for that one time usage, but now I would just write a generator, and maybe add a qr code with a route [webpage/453](#453), just to remove url typing, and any user input.
 
-### Design
+### Design [Initial]
 
 ![Website deisgn](images/Screenshot.png)
+
+## 4/23/22 - Englishify
+
+Translated index.php, admin.php to english and removed unnecessary copies of php files. Also replaced image with useful links with actual anchor tags.
+
+### Lighthouse score
+
+
+Performance | Accessibility | Best Practices | SEO | PWA
+------------- | ------------- | ------------- | ------------- | -------------
+99 | 75 | 83 | 67 | N/A

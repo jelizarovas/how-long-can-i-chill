@@ -13,7 +13,7 @@
 	?>
 
 	<form action="clear.php" method="post">
-		Kokiu numeriu prad�ti: <input type="text" name="number" />
+		Which number to start with? <input type="text" name="number" />
 		<input type="submit" />
 	</form>
 
@@ -22,9 +22,9 @@
 	<?php
 
 	if (empty($_POST["number"]))
-		echo "BUTINAI �VESKITE SU 00x, ar 0xx!!!!";
+		echo "Please enter with leading zeros, like 0XX or 00X!!!!";
 	else {
-		echo "I�VALYTA! Prasid�s numeriu " . $_POST["number"];
+		echo "CLEARED! Will Start with number " . $_POST["number"];
 		$file = fopen("log.txt", "w");
 		fwrite($file, date("d") . ",");
 		$hour = date("H") + 3;
@@ -34,11 +34,11 @@
 		fwrite($file, $_POST["number"]);
 		fclose($file);
 
-		echo date("d") . "diena, ";
+		echo date("d") . "day, ";
 		$hour = date("H") + 3;
 		echo $hour;
-		echo " valanda ir ";
-		echo date("i") . " minu�i�.";
+		echo " hour and  ";
+		echo date("i") . " minute.";
 	}
 
 
