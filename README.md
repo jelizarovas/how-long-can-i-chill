@@ -22,7 +22,7 @@ When i proposed the idea, I had no clue how to execute it. I've had some html ex
 
 ### Template for the actual ticket
 
-![Ticket](img.png)
+![Ticket](images/ticket_template.png)
 
 Not sure how exactly this part was executed, but I am guessing that I took the template, added multiples of it to word document, and manually wrote out the numbers. Or just printed a bunch of blank ones and manually wrote numbers on it.
 
@@ -38,7 +38,18 @@ Translated index.php, admin.php to english and removed unnecessary copies of php
 
 ### Lighthouse score
 
-
 Performance | Accessibility | Best Practices | SEO | PWA
 ------------- | ------------- | ------------- | ------------- | -------------
 99 | 75 | 83 | 67 | N/A
+
+## 4/23/22 - Index rework
+
+Replaced the whole sliced table design with flex css, looking almost identical to original design with some minor tweaks.
+
+![Website deisgn](images/Snapshot%2022-04-23.png)
+
+### Lighthouse score
+
+Performance | Accessibility | Best Practices | SEO | PWA
+------------- | ------------- | ------------- | ------------- | -------------
+100 | 100 | 100 | 87 | N/A
