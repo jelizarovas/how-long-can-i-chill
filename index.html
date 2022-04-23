@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#How long can I chill??</title>
+
+    <style type="text/css">
+      :root {
+        --container-padding: 18px;
+        --bg-color: #d84848;
+      }
+
+      html {
+        height: 100%;
+      }
+
+      body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--bg-color);
+        margin: 0px;
+        padding: 0px;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+
+      .container {
+        width: 641px;
+        height: 480px;
+        box-sizing: border-box;
+        background-color: white;
+        padding: var(--container-padding);
+      }
+
+      .content {
+        box-sizing: border-box;
+        background-color: var(--bg-color);
+        border-radius: 10px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        align-items: center;
+      }
+
+      .ticket {
+        font-size: 150px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+      }
+
+      .flex {
+        display: flex;
+        width: 100%;
+      }
+
+      .content-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+
+      .useful-links {
+        align-self: flex-start;
+      }
+
+      .grow {
+        flex-grow: 1;
+      }
+
+      .logo {
+        width: auto;
+        height: 215px;
+        margin-inline: 30px;
+        box-sizing: border-box;
+      }
+    </style>
+
+    <script type="text/javascript">
+      let averageTicketTime = 0;
+      let currentTicket = 0;
+      let userTicket = 0;
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const currentTicketRef = document.getElementById("currentTicket");
+        const waitTimeRef = document.getElementById("waitTime");
+        const resultRef = document.getElementById("result");
+
+        averageTicketTime =
+          JSON.parse(window.localStorage.getItem("averageTicketTime")) || 22;
+        currentTicket =
+          JSON.parse(window.localStorage.getItem("currentTicket")) || 166;
+        // console.log(window.location.href)
+        waitTimeRef.textContent = averageTicketTime;
+        currentTicketRef.textContent = currentTicket;
+      });
+
+      function setUserTicket() {
+        const userInput = document.getElementById("userTicket");
+        userTicket = userInput.value;
+        const timeToWait = averageTicketTime * (userTicket - currentTicket);
+        resultRef.textContent = `You have left ~ ${timeToWait} minutes.`;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="content">
+        <span>Currently signing ticket number is:</span>
+        <span class="ticket">No. <span id="currentTicket">000</span> </span>
+        <div class="flex">
+          <div class="content-col">
+            <div>
+              Today's ticket's average is
+              <span id="waitTime">0</span>
+              min.
+            </div>
+            <span>Find Out How Long you have to wait!</span>
+            <form action="index.php" method="post">
+              <input
+                type="text"
+                id="userTicket"
+                name="number"
+                placeholder="Your ticket number"
+              />
+              <button type="button" onclick="setUserTicket()">Submit</button>
+            </form>
+            <div id="result"></div>
+
+            <div class="useful-links">
+              Useful links <br />
+              <a
+                href="http://www.vu.lt"
+                target="_blank"
+                rel="noopener noreferrer"
+                >vu.lt</a
+              >
+              <a
+                href="http://www.ffsa.lt"
+                target="_blank"
+                rel="noopener noreferrer"
+                >ffsa.lt</a
+              >
+              <a
+                href="http://www.ff.vu.lt"
+                target="_blank"
+                rel="noopener noreferrer"
+                >ff.vu.lt</a
+              >
+            </div>
+          </div>
+          <div>
+            <img
+              class="logo"
+              src="images/vusa_logo.svg"
+              alt="Vilnius universtiy student assoc. logo"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
