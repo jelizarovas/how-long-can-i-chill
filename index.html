@@ -96,7 +96,6 @@
       document.addEventListener("DOMContentLoaded", function () {
         const currentTicketRef = document.getElementById("currentTicket");
         const waitTimeRef = document.getElementById("waitTime");
-        const resultRef = document.getElementById("result");
 
         averageTicketTime =
           JSON.parse(window.localStorage.getItem("averageTicketTime")) || 22;
@@ -105,14 +104,19 @@
         // console.log(window.location.href)
         waitTimeRef.textContent = averageTicketTime;
         currentTicketRef.textContent = currentTicket;
-      });
 
-      function setUserTicket() {
-        const userInput = document.getElementById("userTicket");
-        userTicket = userInput.value;
-        const timeToWait = averageTicketTime * (userTicket - currentTicket);
-        resultRef.textContent = `You have left ~ ${timeToWait} minutes.`;
-      }
+        var form = document.getElementById("numberForm");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const userInput = document.getElementById("userTicket");
+          const resultRef = document.getElementById("result");
+
+          userTicket = userInput.value;
+          const timeToWait = averageTicketTime * (userTicket - currentTicket);
+          resultRef.textContent = `You have left ~ ${timeToWait} minutes.`;
+        });
+      });
     </script>
   </head>
 
@@ -129,15 +133,16 @@
               min.
             </div>
             <span>Find Out How Long you have to wait!</span>
-            <form action="index.php" method="post">
+            <form id="numberForm">
               <input
                 type="text"
                 id="userTicket"
                 name="number"
                 placeholder="Your ticket number"
               />
-              <button type="button" onclick="setUserTicket()">Submit</button>
+              <button type="submit">Submit</button>
             </form>
+
             <div id="result"></div>
 
             <div class="useful-links">
