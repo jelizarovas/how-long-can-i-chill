@@ -2,6 +2,10 @@
 
 Originally `kiekgalimachillint`
 
+[DEMO](https://jelizarovas.github.io/how-long-can-i-chill/)
+
+Admin demo not available yet.
+
 ## Why
 
 Signing a contract for university was boring with lines lasting 2-4 hours. [Vilnius University Students' Representation](https://ff.vusa.lt/l) decided to spruce up the signing process by adding enterainment - games, tours, etc. We feared that people wouldn't want to leave their long lines, so I suggested ticketing system like banks use, just available online.
